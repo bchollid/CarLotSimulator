@@ -7,27 +7,53 @@ namespace CarLotSimulator
         static void Main(string[] args)
         {
             //TODO
+            var carLot = new CarLot();
 
-            //Create a seperate class file called Car
-            //Car shall have the following properties: Year, Make, Model, EngineNoise, HonkNoise, IsDriveable
-            //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
-            //The methods should take one string parameter: the respective noise property
+            var ford = new Car();
 
+            ford.Make = "Ford";
+            ford.Model = "F150";
+            ford.Year = 2020;
+            ford.IsDriveable = true;
+            ford.HonkNoise = "Errrrrrrr";
+            ford.EngineNoise = "Rumrumrumrum";
 
-            //Now that the Car class is created we can instanciate 3 new cars
-            //Set the properties for each of the cars
-            //Call each of the methods for each car
+            carLot.totalCars.Add(ford);
 
-            //*************BONUS*************//
+            var bmw = new Car()
+            {
+             Make = "BMW",
+             Model = "X5",
+             Year = 2023,
+             IsDriveable = true,
+             HonkNoise = "Wahhhhhhh",
+             EngineNoise = "Vrooooom",
+            };
 
-            // Set the properties utilizing the 3 different ways we learned about, one way for each car
+            carLot.totalCars.Add(bmw);
 
-            //*************BONUS X 2*************//
+            var honda = new Car("Honda", "Civic", 2005, false, "Blaaaaaaaa", "This engine doesn't run. No noise applicable.");
 
-            //Create a CarLot class
-            //It should have at least one property: a List of cars
-            //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
-            //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+            carLot.totalCars.Add(honda);
+
+            Console.WriteLine("-------------------------------------");
+
+            Console.WriteLine($"The {ford.Year} {ford.Make} {ford.Model} make these noises.");
+            ford.MakeEngineNoise(ford.EngineNoise);
+            ford.MakeHonkNoise(ford.HonkNoise);
+            Console.WriteLine($"The {bmw.Year} {bmw.Make} {bmw.Model} make these noises.");
+            bmw.MakeEngineNoise(bmw.EngineNoise);
+            bmw.MakeHonkNoise(bmw.HonkNoise);
+            Console.WriteLine($"The {honda.Year} {honda.Make} {honda.Model} make these noises.");
+            honda.MakeEngineNoise(honda.EngineNoise);
+            honda.MakeHonkNoise(honda.HonkNoise);
+
+            Console.WriteLine("-------------------------------------");
+
+            foreach(var carInTheLot in carLot.totalCars)
+            {
+                Console.WriteLine($"Year: {carInTheLot.Year} Make: {carInTheLot.Make} Model: {carInTheLot.Model}");
+            }
         }
     }
 }
