@@ -10,6 +10,8 @@ namespace CarLotSimulator
             var carLot = new CarLot();
 
             var ford = new Car();
+            CarLot.numberOfCars++;
+            Console.WriteLine($"Total number of cars in lot: {CarLot.numberOfCars}");
 
             ford.Make = "Ford";
             ford.Model = "F150";
@@ -29,10 +31,15 @@ namespace CarLotSimulator
              HonkNoise = "Wahhhhhhh",
              EngineNoise = "Vrooooom",
             };
+            CarLot.numberOfCars++;
+            Console.WriteLine($"Total number of cars in lot: {CarLot.numberOfCars}");
+
 
             carLot.totalCars.Add(bmw);
 
             var honda = new Car("Honda", "Civic", 2005, false, "Blaaaaaaaa", "This engine doesn't run. No noise applicable.");
+            CarLot.numberOfCars++;
+            Console.WriteLine($"Total number of cars in lot: {CarLot.numberOfCars}");
 
             carLot.totalCars.Add(honda);
 
